@@ -1,7 +1,11 @@
 package com.ies.pilaArray;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.jupiter.api.Assertions.*;
 
+
+import org.hamcrest.core.StringContains;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,7 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class PilaArraysTest {
-	PilaArrays<Integer> pila;
+	static PilaArrays<Integer> pila;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,7 +35,7 @@ class PilaArraysTest {
 
 	@Test
 	void testPilaArrays() {
-		assertEquals(true,pila);
+		assertEquals(true,pila instanceof PilaArrays );
 	}
 	
 	@Test
@@ -45,23 +49,25 @@ class PilaArraysTest {
 		assertEquals(1,pila.primero());
 	}
 	@Test
-	void testExtraer() {
-		fail("Not yet implemented");
+	void testExtraerPilaLlena() {
+		pila.aniadir(1);
+		assertEquals(false, pila.esVaciar());
+		assertEquals(1,pila.extraer());
 	}
+
 
 	@Test
 	void testPrimero() {
-		fail("Not yet implemented");
+		pila.aniadir(1);
+		assertEquals(false, pila.esVaciar());
+		assertEquals(1,pila.primero());
 	}
 
 	@Test
 	void testToString() {
-		fail("Not yet implemented");
+		pila.aniadir(1);
+		assertEquals(true, pila.toString().contains("1"));;
 	}
 
-	@Test
-	void testMain() {
-		fail("Not yet implemented");
-	}
 
 }
